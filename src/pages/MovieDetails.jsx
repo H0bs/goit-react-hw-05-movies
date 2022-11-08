@@ -7,14 +7,15 @@ import { AdditionalInfo } from "components/AdditionalInfo/AdditionalInfo";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movie, setMovies] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
+    if (movie === []) return;
     const controller = new AbortController();
     const fetchMovies = async () => {
       try {
         const response = await getMoviesById(movieId, controller);
-        setMovies(response);
+        setMovie(response);
       } catch (error) {
         console.log(error)
       }
