@@ -14,7 +14,7 @@ export const getTrendingMovies = async (controller) => {
   }));
 }
 
-export const getMoviesById = async (id, controller) => {
+export const getMovieById = async (id, controller) => {
   const response = await axios.get(`movie/${id}?api_key=${KEY}&language=en-US`, {
     signal: controller.signal,
   })

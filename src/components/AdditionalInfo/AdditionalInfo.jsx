@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Link, Outlet } from "react-router-dom"
 
-export const AdditionalInfo = () => {
+const AdditionalInfo = () => {
   return (
     <>
       <ul>
@@ -19,3 +19,5 @@ export const AdditionalInfo = () => {
     </>
   )
 }
+
+export default AdditionalInfo;

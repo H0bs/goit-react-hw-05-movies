@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getMoviesById } from "../Api/api";
+import { getMovieById } from "../Api/api";
 import ButtonBack from "components/ButtonBack/ButtonBack";
 import MovieInfo from "components/MovieInfo/MovieInfo";
-import { AdditionalInfo } from "components/AdditionalInfo/AdditionalInfo";
+import AdditionalInfo from "components/AdditionalInfo/AdditionalInfo";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -13,7 +13,7 @@ const MovieDetails = () => {
     const controller = new AbortController();
     const fetchMovies = async () => {
       try {
-        const response = await getMoviesById(movieId, controller);
+        const response = await getMovieById(movieId, controller);
         setMovie(response);
       } catch (error) {
         console.log(error)
