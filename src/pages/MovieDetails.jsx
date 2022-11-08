@@ -10,7 +10,6 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    if (movie === []) return;
     const controller = new AbortController();
     const fetchMovies = async () => {
       try {
@@ -24,7 +23,7 @@ const MovieDetails = () => {
     return () => {
       controller.abort();
     }
-  }, [movie, movieId])
+  }, [movieId])
 
   return (
     <>
