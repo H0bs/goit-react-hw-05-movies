@@ -10,22 +10,24 @@ const MovieReview = () => {
 
   useEffect(() => {
     const controller = new AbortController();
+
     const fetchReviews = async () => {
       try {
         const response = await getReview(movieId, controller);
-        setReviews(response)
+        setReviews(response);
       } catch (error) {
         console.log(error);
       }
     }
     fetchReviews();
+
     return () => {
       controller.abort();
     }
   }, [movieId])
   return (
     <List>
-      {reviews.length &&
+      {reviews.length ? (
         reviews.map(review => {
           return (
             <li key={review.id}>
@@ -34,7 +36,9 @@ const MovieReview = () => {
             </li>
           )
         })
-      }
+          ) : (
+          <p>Sorry, we have not reviews</p>
+      )}
     </List>
   )
 }

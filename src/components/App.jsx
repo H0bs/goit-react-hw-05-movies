@@ -2,12 +2,13 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 export const App = () => {
-  const Home = lazy(() => import("../pages/Home"));
-  const Movies = lazy(() => import("../pages/Movies"));
-  const MovieDetails = lazy(() => import("../pages/MovieDetails"));
+  const Home = lazy(() => import("../pages/Home/Home"));
+  const Movies = lazy(() => import("../pages/Movies/Movies"));
+  const MovieDetails = lazy(() => import("../pages/MovieDetails/MovieDetails"));
   const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout"));
   const MovieCast = lazy(() => import("./MovieCast/MovieCast"));
-  const MovieReview = lazy(() => import("./MovieReview/MovieReview"))
+  const MovieReview = lazy(() => import("./MovieReview/MovieReview"));
+  
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>

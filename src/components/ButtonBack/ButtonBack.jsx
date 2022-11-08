@@ -1,6 +1,6 @@
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "./ButtonBack.styled";
 
-const { useNavigate, useLocation } = require("react-router-dom")
 
 const ButtonBack = () => {
   const navigate = useNavigate();

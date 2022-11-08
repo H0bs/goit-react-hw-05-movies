@@ -1,8 +1,9 @@
 import { getMovieByName } from "Api/api";
-import { MoviesList } from "components/MoviesList/MoviesList";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Button, Form, Input } from "./pages.styled";
+import { MoviesList } from "components/MoviesList/MoviesList";
+import { Button, Form, Input } from "./Movies.styled";
+
 
 const Movies = () => {
   const [search, setSearch] = useState('');
@@ -30,7 +31,7 @@ const Movies = () => {
       const response = await getMovieByName(searchQuery, controller);
 
       if (response.length === 0) {
-        return alert("Movie not found")
+        return alert("Movie not found");
       } 
       setMovies(response);
     } catch (error) {

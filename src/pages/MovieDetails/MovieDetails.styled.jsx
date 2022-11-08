@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Section = styled.section`
+export const Section = styled.div`
   display: flex;
   padding-bottom: 20px;
   border-bottom: 9px double rgba(163,95,164,0.2);
