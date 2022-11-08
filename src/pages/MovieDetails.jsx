@@ -24,7 +24,7 @@ const MovieDetails = () => {
     return () => {
       controller.abort();
     }
-  }, [movieId])
+  }, [movie, movieId])
 
   return (
     <>
