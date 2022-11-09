@@ -1,4 +1,4 @@
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect, Suspense } from "react";
 import { getMovieById } from "../../Api/api";
 import ButtonBack from "components/ButtonBack/ButtonBack";
@@ -7,6 +7,7 @@ import { Container, List, ListItem, Section } from "./MovieDetails.styled";
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -52,10 +53,10 @@ const MovieDetails = () => {
           <ul>
             <b>Additional information</b>
             <li>
-              <Link to ="cast">Cast</Link>
+              <Link to ="cast" state={{ from: location?.state?.from ?? "/" }}>Cast</Link>
             </li>
             <li>
-              <Link to="reviews">Review</Link>
+              <Link to="reviews" state={{ from: location?.state?.from ?? "/" }}>Review</Link>
             </li>
           </ul>
           <Suspense fallback={<div>Loading...</div>}>
